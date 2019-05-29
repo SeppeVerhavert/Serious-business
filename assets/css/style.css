@@ -1,11 +1,5 @@
-:root {
-    --input-padding-x: 1.5rem;
-    --input-padding-y: 0.75rem;
-}
-
-.login,
-.image {
-    min-height: 100vh;
+body {
+    height: 100%;
 }
 
 .bg-image {
@@ -14,19 +8,12 @@
     background-position: center;
 }
 
-.btn-login {
-    font-size: 0.9rem;
-    letter-spacing: 0.05rem;
-    padding: 0.75rem 1rem;
-    border-radius: 2rem;
-}
-
 #wrapper {
     background-color: rgb(240, 240, 240);
 }
 
 #Logo {
-    padding: 10%;
+    padding-top: 25%;
     justify-content: center;
     font-weight: 300;
 }
