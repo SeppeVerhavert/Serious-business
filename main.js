@@ -1,8 +1,3 @@
-function checkEverything() {
-    checkDate();
-    checkTime();
-}
-
 function checkDate() {
     var d = new Date();
     var weekday = new Array(7);
@@ -18,7 +13,7 @@ function checkDate() {
     document.getElementById("ShowDay").innerHTML = n;
 }
 
-function checkTime ( ) {
+function checkTime() {
   var currentTime = new Date ( );
 
   var currentHours = currentTime.getHours ( );
@@ -35,6 +30,21 @@ function checkTime ( ) {
   currentHours = ( currentHours == 0 ) ? 12 : currentHours;
 
   var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
-  
+
   document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+}
+
+function checkOpen() {
+   
+    if (n == Monday) {
+        document.getElementById("ShowOpen").innerHTML = "Sorry, we are closed.";
+    } else {
+        if (n == Sunday && currentHours > 9 && currentHours < 15){
+            document.getElementById("ShowOpen").innerHTML = "We are open!";
+        } else if (currentHours > 8 && currentHours < 16){
+            document.getElementById("ShowOpen").innerHTML = "We are open!";
+        } else {
+            document.getElementById("ShowOpen").innerHTML = "Sorry, we are closed.";
+        }
+    }
 }
