@@ -1,0 +1,32 @@
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: 0.75rem;
+}
+
+.login,
+.image {
+    min-height: 100vh;
+}
+
+.bg-image {
+    background-image: url('https://images.unsplash.com/photo-1528699633788-424224dc89b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=674&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    border-radius: 2rem;
+}
+
+#wrapper {
+    background-color: rgb(240, 240, 240);
+}
+
+#Logo {
+    padding: 10%;
+    justify-content: center;
+    font-weight: 300;
+}
