@@ -1,16 +1,18 @@
 function checkDate() {
-    var d = new Date();
-    var weekday = new Array(7);
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
 
-    var n = weekday[d.getDay()];
-    document.getElementById("ShowDay").innerHTML = n;
+  var d = new Date();
+  var weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+
+ var n = weekday[d.getDay()];
+
+  document.getElementById("ShowDay").innerHTML = n;
 }
 
 function checkTime() {
@@ -31,18 +33,17 @@ function checkTime() {
 
   var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
 
-  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+  document.getElementById("clock").innerHTML = currentTimeString;
 }
 
 function checkOpen() {
-   
-    if (n == Monday) {
-        document.getElementById("ShowOpen").innerHTML = "Sorry, we are closed.";
-    } else if (n == Sunday && currentHours > 9 && currentHours < 15) {
-        document.getElementById("ShowOpen").innerHTML = "We are open!";
-    } else if (currentHours > 8 && currentHours < 16){
-        document.getElementById("ShowOpen").innerHTML = "We are open!";
-    } else {
-        document.getElementById("ShowOpen").innerHTML = "Sorry, we are closed.";
-    }
-    }
+  
+  var c = weekday[b.getDay()];
+
+  document.getElementById("clock").innerHTML = currentTimeString;
+    
+  if (n == "Monday") {
+    document.getElementById("OpenClosed").innerHTML = "Sorry we are closed.";
+  } 
+  
+}
