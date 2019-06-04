@@ -95,7 +95,7 @@ function changeClosingtime() {
 
   if (dayOfWeek == 2) {
     var y = document.getElementById("time2Div");
-    y.innerHTML = timehour;
+    y.innerHTML = "today";
   }
 
   if (dayOfWeek == 3) {
