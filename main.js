@@ -45,15 +45,27 @@ function addZero(i) {
 
 function checkOpen() {
 
-  if ((dayOfWeek == 0) && hours >= 9 && hours <= 15) {
+  if ((dayOfWeek == 0) && hours >= 9 && hours < 14) {
     openDiv.innerHTML = 'Hooray, we\'re open!'
   } 
+
+  else if ((dayOfWeek == 0) && hours >= 9 && hours == 14) {
+    openDiv.innerHTML = 'Hurry, we\'re almost closing!'
+  } 
   
-  else if ((dayOfWeek == 2 || dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5) && hours >= 8 && hours <= 16) {
+  else if ((dayOfWeek == 2 || dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5) && hours >= 8 && hours < 15) {
     openDiv.innerHTML = 'Hooray, we\'re open!'
+  } 
+
+  else if ((dayOfWeek == 2 || dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5) && hours == 15) {
+    openDiv.innerHTML = 'Hurry, we\'re almost closing!'
   } 
   
   else {
     openDiv.innerHTML = 'Sorry, we\'re closed!'
   }
-};
+}
+
+function closeEarly() {
+  openDiv.innerHTML = 'Sorry, we\'re closed!'
+}
