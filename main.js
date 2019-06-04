@@ -29,24 +29,32 @@ var checkTime = function() {
   };
 
   if (dayOfWeek == 1 ) {
-    timeDiv.innerHTML = 'it\'s ' + today + ' ' + hour + ':' + minutes + ':' + seconds + suffix + ' - we\'re closed!';
+    dayDiv.innerHTML = 'It\'s ' + today
+    timeDiv.innerHTML =  hour + ':' + minutes + ':' + seconds + ' ' + suffix;
+    openDiv.innerHTML = 'Sorry, we\'re closed'
     timeDiv.className = 'closed';
   } 
 
   else if ((dayOfWeek == 0) && hour >= 9 && hour <= 15) {
-    timeDiv.innerHTML = 'it\'s ' + today + ' ' + hour + ':' + minutes + ':' + seconds + suffix + ' - we\'re open!';
+    dayDiv.innerHTML = 'It\'s ' + today
+    timeDiv.innerHTML =  hour + ':' + minutes + ':' + seconds + ' ' + suffix;
+    openDiv.innerHTML = 'Hooray, we\'re open!'
     timeDiv.className = 'open';
   } 
   
   else if ((dayOfWeek == 2 || dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5) && hour >= 8 && hour <= 16) {
-    timeDiv.innerHTML = 'it\'s ' + today + ' ' + hour + ':' + minutes + ':' + seconds + suffix + ' - we\'re open!';
+    dayDiv.innerHTML = 'It\'s ' + today
+    timeDiv.innerHTML =  hour + ':' + minutes + ':' + seconds + ' ' + suffix;
+    openDiv.innerHTML = 'Hooray, we\'re open!'
     timeDiv.className = 'open';
   } 
   
   else {
     if (hour == 0 || hour > 12) {
     }
-    timeDiv.innerHTML = 'it\'s ' + today + ' ' + hour + ':' + minutes + ':' + seconds + suffix + ' - we\'re closed!';
+    dayDiv.innerHTML = 'It\'s ' + today
+    timeDiv.innerHTML =  hour + ':' + minutes + ':' + seconds + ' ' + suffix;
+    openDiv.innerHTML = 'Sorry, we\'re closed!'
     timeDiv.className = 'closed';
   }
 };
