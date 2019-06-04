@@ -1,8 +1,4 @@
-// ==================
-// Global Viariables
-// ==================
-
-var d = new Date();
+var now = new Date();
 var weekday = new Array(7);
 weekday[0] = "Sunday";
 weekday[1] = "Monday";
@@ -12,31 +8,52 @@ weekday[4] = "Thursday";
 weekday[5] = "Friday";
 weekday[6] = "Saturday";
 
-var n = weekday[d.getDay()];
+var checkTime = function() {
+  var today = weekday[now.getDay()];
+  var timeDiv = document.getElementById('timeDiv');
+  var dayOfWeek = now.getDay();
+  var hour = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
 
-var t = new Date ( );
+  //add AM or PM
+  var suffix = hour >= 12 ? "PM" : "AM";
 
-var currentHours = t.getHours ( );
-var currentMinutes = t.getMinutes ( );
-var currentSeconds = t.getSeconds ( );
+  // add 0 to one digit minutes
+  if (minutes < 10) {
+    minutes = "0" + minutes
+  };
 
-currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
-currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+  if (seconds < 10) {
+    seconds = "0" + seconds
+  };
 
-var t = ( currentHours < 12 ) ? "AM" : "PM";
-currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
-currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+  if (dayOfWeek == 1 ) {
+    timeDiv.innerHTML = 'it\'s ' + today + ' ' + hour + ':' + minutes + ':' + seconds + suffix + ' - we\'re closed!';
+    timeDiv.className = 'closed';
+  } 
 
-var tstring = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + t;
+  else if ((dayOfWeek == 0) && hour >= 9 && hour <= 15) {
+    timeDiv.innerHTML = 'it\'s ' + today + ' ' + hour + ':' + minutes + ':' + seconds + suffix + ' - we\'re open!';
+    timeDiv.className = 'open';
+  } 
+  
+  else if ((dayOfWeek == 2 || dayOfWeek == 3 || dayOfWeek == 4 || dayOfWeek == 5) && hour >= 8 && hour <= 16) {
+    timeDiv.innerHTML = 'it\'s ' + today + ' ' + hour + ':' + minutes + ':' + seconds + suffix + ' - we\'re open!';
+    timeDiv.className = 'open';
+  } 
+  
+  else {
+    if (hour == 0 || hour > 12) {
+    }
+    timeDiv.innerHTML = 'it\'s ' + today + ' ' + hour + ':' + minutes + ':' + seconds + suffix + ' - we\'re closed!';
+    timeDiv.className = 'closed';
+  }
+};
 
-// ==================
-// Functions
-// ==================
+var currentDay = weekday[now.getDay()];
+var currentDayID = "#" + currentDay; //gets todays weekday and turns it into id
+$(currentDayID).toggleClass("today"); //hightlights today in the view hours modal popup
 
-function checkDate() {
-  document.getElementById("ShowDay").innerHTML = n;
-}
-
-function checkTime() {
-  document.getElementById("clock").innerHTML = currentTimeString;
-}
+setInterval(checkTime, 1000);
+checkTime();
