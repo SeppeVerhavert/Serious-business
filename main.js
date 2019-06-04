@@ -33,8 +33,7 @@ function checkTime() {
   var seconds = today.getSeconds();
   minutes = addZero(minutes);
   seconds = addZero(seconds);
-  document.getElementById('timeDiv').innerHTML =
-  hours + ":" + minutes + ":" + seconds;
+  document.getElementById('timeDiv').innerHTML = hours + ":" + minutes + ":" + seconds;
   setTimeout(checkTime, 1000);
 }
 
@@ -69,21 +68,18 @@ function checkOpen() {
 function changeClosingtime() {
   document.getElementById( "button" ).style.display = "none" ;
   openDiv.innerHTML = 'Sorry, we\'re closed!'
-
+  
+  var today = new Date();
+  var hours = today.getHours();
   var minutes = today.getMinutes();
   var seconds = today.getSeconds();
 
   var timehour = hours + ":" + minutes + ":" + seconds;
-  
-  
 
-  if (day == 2) {
-    document.getElementById("closingTime1").innerHTML = timehour;
-    document.getElementById("disappear").innerHTML = "<br />" + "";
-    document.getElementById("openClose").innerHTML = "CLOSED";
-  }
-  else {
-    document.getElementById("closingTime0").innerHTML = timehour;
-    document.getElementById("disappear").innerHTML = "<br />" + "";
-  }
+  var y = document.getElementById("time1Div");
+  y.innerHTML = timehour;
+
+  // if (dayOfWeek == 2) {
+  //   closingTime1.innerHTML = timehour
+  // }
 }
