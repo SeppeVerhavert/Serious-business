@@ -28,13 +28,13 @@ function checkDay() {
 function checkTime() {
   
   var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  m = addZero(m);
-  s = addZero(s);
+  var hours = today.getHours();
+  var minutes = today.getMinutes();
+  var seconds = today.getSeconds();
+  minutes = addZero(minutes);
+  seconds = addZero(seconds);
   document.getElementById('timeDiv').innerHTML =
-  h + ":" + m + ":" + s;
+  hours + ":" + minutes + ":" + seconds;
   setTimeout(checkTime, 1000);
 }
 
@@ -66,6 +66,24 @@ function checkOpen() {
   }
 }
 
-function closeEarly() {
+function changeClosingtime() {
+  document.getElementById( "button" ).style.display = "none" ;
   openDiv.innerHTML = 'Sorry, we\'re closed!'
+
+  var minutes = today.getMinutes();
+  var seconds = today.getSeconds();
+
+  var timehour = hours + ":" + minutes + ":" + seconds;
+  
+  
+
+  if (day == 2) {
+    document.getElementById("closingTime1").innerHTML = timehour;
+    document.getElementById("disappear").innerHTML = "<br />" + "";
+    document.getElementById("openClose").innerHTML = "CLOSED";
+  }
+  else {
+    document.getElementById("closingTime0").innerHTML = timehour;
+    document.getElementById("disappear").innerHTML = "<br />" + "";
+  }
 }
