@@ -16,17 +16,6 @@ var today = weekday[now.getDay()];
 var dayOfWeek = now.getDay();
 
 var hours = now.getHours();
-var minutes = now.getMinutes();
-var seconds = now.getSeconds();
-var suffix = hours >= 12 ? "PM" : "AM";
-
-if (minutes < 10) {
-  minutes = "0" + minutes
-};
-
-if (seconds < 10) {
-  seconds = "0" + seconds
-};
 
 // =================
 // Functions
@@ -37,6 +26,7 @@ function checkDay() {
 }
 
 function checkTime() {
+  
   var today = new Date();
   var h = today.getHours();
   var m = today.getMinutes();
@@ -45,10 +35,11 @@ function checkTime() {
   s = addZero(s);
   document.getElementById('timeDiv').innerHTML =
   h + ":" + m + ":" + s;
-  var t = setTimeout(checkTime, 1000);
+  setTimeout(checkTime, 1000);
 }
+
 function addZero(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  if (i < 10) {i = "0" + i};
   return i;
 }
 
