@@ -76,10 +76,8 @@ function changeClosingtime() {
 
   var timehour = hours + ":" + minutes + ":" + seconds;
 
-  var y = document.getElementById("time1Div");
-  y.innerHTML = timehour;
-
-  // if (dayOfWeek == 2) {
-  //   closingTime1.innerHTML = timehour
-  // }
+  if (dayOfWeek == 2) {
+    var y = document.getElementById("time1Div");
+    y.innerHTML = timehour;
+  }
 }
