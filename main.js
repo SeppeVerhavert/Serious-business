@@ -21,9 +21,17 @@ var hours = now.getHours();
 // Functions
 // =================
 
+// =================
+// checkDay
+// =================
+
 function checkDay() {
   dayDiv.innerHTML = 'It\'s ' + today
 }
+
+// =================
+// checkTime
+// =================
 
 function checkTime() {
   
@@ -41,6 +49,10 @@ function addZero(i) {
   if (i < 10) {i = "0" + i};
   return i;
 }
+
+// =================
+// checkOpen
+// =================
 
 function checkOpen() {
 
@@ -65,6 +77,10 @@ function checkOpen() {
   }
 }
 
+// =================
+// changeClosingtime
+// =================
+
 function changeClosingtime() {
   document.getElementById( "button" ).style.display = "none" ;
   openDiv.innerHTML = 'Sorry, we\'re closed!'
@@ -72,12 +88,38 @@ function changeClosingtime() {
   var today = new Date();
   var hours = today.getHours();
   var minutes = today.getMinutes();
-  var seconds = today.getSeconds();
 
-  var timehour = hours + ":" + minutes + ":" + seconds;
+  minutes = addZero(minutes);
+
+  var timehour = hours + ":" + minutes;
 
   if (dayOfWeek == 2) {
-    var y = document.getElementById("time1Div");
+    var y = document.getElementById("time2Div");
+    y.innerHTML = timehour;
+  }
+
+  if (dayOfWeek == 3) {
+    var y = document.getElementById("time3Div");
+    y.innerHTML = timehour;
+  }
+
+  if (dayOfWeek == 4) {
+    var y = document.getElementById("time4Div");
+    y.innerHTML = timehour;
+  }
+
+  if (dayOfWeek == 5) {
+    var y = document.getElementById("time5Div");
+    y.innerHTML = timehour;
+  }
+
+  if (dayOfWeek == 6) {
+    var y = document.getElementById("time6Div");
+    y.innerHTML = timehour;
+  }
+
+  if (dayOfWeek == 7) {
+    var y = document.getElementById("time7Div");
     y.innerHTML = timehour;
   }
 }
